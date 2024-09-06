@@ -35,7 +35,6 @@ services:
       start_period: 30s
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
 
@@ -50,7 +49,6 @@ services:
       start_period: 30s
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
 
@@ -127,3 +125,6 @@ services:
       - bash
       - -c
       - airflow
+
+volumes:
+  postgres-db-volume:
